@@ -1,8 +1,16 @@
 <?php
 
-use App\Route;
-use Controller\UserController;
+//use App\Route;
+//use Controller\UserController;
+use App\Models\User;
 
-$route = new Route();
+$user = new User();
 
-Route::getMethod('/', [UserController::class, 'index']);
+try{dd($user->create("Minato Namikaze", 'yelloflash@gmail.com', "Kushina"));}catch(\Random\RandomException $e){
+
+}
+
+
+//$route = new Route();
+//
+//Route::getMethod('/', [UserController::class, 'index']);
