@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use PDO;
-use App\Traits\HasAPIToken;use Random\RandomException;
+use App\Traits\HasAPIToken;
+use Random\RandomException;
 
 class User extends DB
 {

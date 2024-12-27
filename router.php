@@ -1,6 +1,6 @@
 <?php
 
-use App\Route;
+use Source\Route;
 
 if (Route::isAPIcall()){
     require 'Routes/api.php';
