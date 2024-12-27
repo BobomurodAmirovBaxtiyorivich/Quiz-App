@@ -27,6 +27,9 @@ class User extends DB
         return true;
     }
 
+    /**
+* @throws RandomException
+*/
     public function getUser(string $email, string $password):bool {
         $this->query = "SELECT * FROM users WHERE email = :email";
         $this->stmt = $this->conn->prepare($this->query);
@@ -36,6 +39,7 @@ class User extends DB
         $user = $this->stmt->fetch();
 
         if ($user && password_verify($password, $user->password)){
+            $this->createApiToken($user->id);
             return true;
         }
         return false;

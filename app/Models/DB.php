@@ -23,4 +23,8 @@ class DB
 
         return $this->conn;
     }
+
+    public function getConnection():PDO {
+        return $this->conn;
+    }
 }

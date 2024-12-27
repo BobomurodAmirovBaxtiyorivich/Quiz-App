@@ -4,7 +4,7 @@ namespace App\Traits;
 
 use Random\RandomException;trait HasAPIToken {
 
-    protected string $ApiToken;
+    public string $ApiToken;
 
     /**
 * @throws RandomException
