@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chiroyli To-Do List</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.23/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Qo'shimcha chiroyli animatsiyalar va stil */
+        .task:hover {
+            transform: scale(1.05);
+            transition: transform 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-purple-500 to-pink-500 font-sans">
+
+<div class="max-w-xl mx-auto mt-16 p-8 bg-white rounded-xl shadow-xl">
+    <h1 class="text-4xl font-bold text-center text-purple-600 mb-8">To-Do List</h1>
+
+    <div class="flex items-center space-x-4">
+        <input id="todoInput" type="text" class="flex-1 p-4 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Yangi vazifa kiriting...">
+        <button id="addButton" class="px-6 py-3 bg-purple-600 text-white rounded-lg shadow-md hover:bg-purple-700 transition duration-300">Qo'shish</button>
+    </div>
+
+    <ul id="todoList" class="mt-6 space-y-4">
+        <!-- Vazifalar ro'yxati -->
+    </ul>
+</div>
+
+<script>
+    document.getElementById("addButton").addEventListener("click", function() {
+        const input = document.getElementById("todoInput");
+        const todoText = input.value.trim();
+
+        if (todoText !== "") {
+            const li = document.createElement("li");
+            li.classList.add("task", "flex", "items-center", "justify-between", "bg-gray-100", "p-4", "rounded-lg", "shadow-md", "transition", "hover:bg-purple-50");
+
+            const span = document.createElement("span");
+            span.classList.add("text-lg", "text-gray-800");
+            span.textContent = todoText;
+
+            const deleteButton = document.createElement("button");
+            deleteButton.classList.add("bg-red-500", "text-white", "px-4", "py-2", "rounded-lg", "hover:bg-red-600", "transition");
+            deleteButton.textContent = "O'chirish";
+            deleteButton.addEventListener("click", function() {
+                li.remove();
+            });
+
+            li.appendChild(span);
+            li.appendChild(deleteButton);
+            document.getElementById("todoList").appendChild(li);
+            input.value = ""; // Inputni tozalash
+        }
+    });
+</script>
+
+</body>
+</html>

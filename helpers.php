@@ -5,7 +5,13 @@ use JetBrains\PhpStorm\NoReturn;
 function views(string $file, array $data = []): void
 {
     extract($data);
-    require "views/" . $file . ".php";
+    require "resources/views/" . $file . ".html";
+}
+
+#[NoReturn]function redirect(string $url): void {
+    header("Location: $url");
+    exit;
+
 }
 
 #[NoReturn] function APIresponse($date, $status = 200): void
